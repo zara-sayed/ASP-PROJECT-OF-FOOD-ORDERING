@@ -1,0 +1,61 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.Master.cs" Inherits="FoodOrdering.SiteMaster" %>
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crave &amp; Co. | <%= Page.Title %></title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+<form id="form1" runat="server">
+<header class="site-header">
+    <div class="nav-wrap">
+        <a href="Default.aspx" class="brand">
+            <span class="brand-icon">C</span>
+            <span class="brand-text"><strong>Crave</strong> &amp; Co.<small>FOOD -> ORDER -> ENJOY</small></span>
+        </a>
+        <nav class="main-nav">
+            <a href="Default.aspx">Home</a>
+            <a href="Menu.aspx">Menu</a>
+            <a href="AdminLogin.aspx">Admin</a>
+            <a href="Cart.aspx" class="cart-nav">Cart <span class="cart-count"><asp:Literal ID="litCartCount" runat="server">0</asp:Literal></span></a>
+            <asp:PlaceHolder ID="phLoggedIn" runat="server" Visible="false">
+                <a href="Orders.aspx">My Orders</a>
+                <asp:LinkButton ID="btnLogout" runat="server" CssClass="nav-login" OnClick="btnLogout_Click">Logout</asp:LinkButton>
+            </asp:PlaceHolder>
+            <asp:PlaceHolder ID="phLoggedOut" runat="server">
+                <a href="Login.aspx" class="nav-login">Login</a>
+            </asp:PlaceHolder>
+        </nav>
+    </div>
+</header>
+<main>
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</main>
+<footer class="site-footer">
+    <div class="footer-wrap">
+        <div>
+            <a href="Default.aspx" class="footer-brand">Crave &amp; Co.</a>
+            <p>Fresh comfort food, beautifully presented and easy to order.</p>
+        </div>
+        <div>
+            <h4>Explore</h4>
+            <a href="Menu.aspx">Menu</a>
+            <a href="AdminLogin.aspx">Admin</a>
+            <a href="Cart.aspx">Cart</a>
+            <a href="Orders.aspx">My Orders</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>support@craveco.local</p>
+            <p>+91 98765 43210</p>
+            <p>Every day:: 10 AM - 11 PM</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Crave &amp; Co. All rights reserved.</div>
+</footer>
+</form>
+</body>
+</html>
